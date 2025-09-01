@@ -1,0 +1,80 @@
+{
+  "info": {
+    "name": "Serverless CRUD API",
+    "_postman_id": "12345678-abcd-efgh-ijkl-1234567890ab",
+    "description": "CRUD API using Lambda + API Gateway + DynamoDB",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create Item",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"id\": \"1\",\n    \"name\": \"Test Item\",\n    \"description\": \"This is a test item\"\n}"
+        },
+        "url": {
+          "raw": "{{api_url}}/item",
+          "host": ["{{api_url}}"],
+          "path": ["item"]
+        }
+      }
+    },
+    {
+      "name": "Get Item",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{api_url}}/item/1",
+          "host": ["{{api_url}}"],
+          "path": ["item", "1"]
+        }
+      }
+    },
+    {
+      "name": "Update Item",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"name\": \"Updated Item\",\n    \"description\": \"This item is updated\"\n}"
+        },
+        "url": {
+          "raw": "{{api_url}}/item/1",
+          "host": ["{{api_url}}"],
+          "path": ["item", "1"]
+        }
+      }
+    },
+    {
+      "name": "Delete Item",
+      "request": {
+        "method": "DELETE",
+        "url": {
+          "raw": "{{api_url}}/item/1",
+          "host": ["{{api_url}}"],
+          "path": ["item", "1"]
+        }
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "api_url",
+      "value": "https://your-api-id.execute-api.region.amazonaws.com/dev"
+    }
+  ]
+}
