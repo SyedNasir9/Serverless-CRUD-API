@@ -115,7 +115,6 @@ graph TB
 | **🏪 DynamoDB** | NoSQL database | Single-digit millisecond latency, unlimited scale |
 | **📈 CloudWatch** | Logging and monitoring | Real-time metrics, custom dashboards, alerting |
 | **🛡️ IAM** | Identity and access management | Fine-grained permissions, security best practices |
-| **🔍 X-Ray** | Distributed tracing | Performance optimization, bottleneck identification |
 
 ---
 
@@ -288,20 +287,6 @@ graph LR
 | **500 Internal Error** | Lambda function fails | Review CloudWatch logs, check Python syntax |
 | **400 Bad Request** | Invalid request format | Validate JSON structure and required fields |
 | **Cold Start Latency** | Slow first requests | Implement provisioned concurrency or connection pooling |
-
-### 📊 Debugging with CloudWatch
-
-```bash
-# View recent Lambda logs
-aws logs tail /aws/lambda/your-function-name --follow
-
-# Query logs with CloudWatch Insights
-aws logs start-query \
-    --log-group-name "/aws/lambda/your-function-name" \
-    --start-time 1642248000 \
-    --end-time 1642251600 \
-    --query-string "fields @timestamp, @message | filter @message like /ERROR/"
-```
 
 ---
 
